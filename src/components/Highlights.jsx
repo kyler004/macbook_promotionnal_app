@@ -8,7 +8,7 @@ const Highlights = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 1024px)'}); 
 
     useGSAP(() => {
-        gsap.to(['.left-column', '.right-column]'], {
+        gsap.to(['.left-column', '.right-column'], {
             scrllTrigger: {
                 trigger: '#highlights', 
                 start: isMobile ? 'bottom bottom' : 'top center'
@@ -21,7 +21,7 @@ const Highlights = () => {
         }); 
     })
   return (
-    <section>
+    <section id='highlights'>
         <h2>There's never been a better time to upgrade.</h2>
         <h3>Here's what you get with the bew Macbook Pro</h3>
 
