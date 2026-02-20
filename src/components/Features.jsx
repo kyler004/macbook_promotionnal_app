@@ -17,8 +17,9 @@ const ModelScroll = () => {
 
   //Pre-load al feature videos durning component mount
   useEffect(() => {
+    const videos = [];
     featureSequence.forEach((feature) => {
-      //Create a virtual video element to pre load the video
+      // Create a virtual video element to preload the video
       const v = document.createElement("video");
 
       Object.assign(v, {
@@ -30,7 +31,15 @@ const ModelScroll = () => {
       });
 
       v.load();
+      videos.push(v);
     });
+
+    return () => {
+      videos.forEach((v) => {
+        v.src = "";
+        v.load();
+      });
+    };
   }, []);
 
   useGSAP(() => {
